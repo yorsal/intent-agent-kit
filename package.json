@@ -1,0 +1,79 @@
+{
+  "name": "intent-agent-kit",
+  "version": "0.1.0",
+  "description": "A framework-agnostic, pluggable, multi-engine intent recognition library for AI Agents.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "!dist/*-*.d.ts"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "release": "./scripts/release.sh",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangle250722/intent-agent-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yangle250722/intent-agent-kit/issues"
+  },
+  "homepage": "https://github.com/yangle250722/intent-agent-kit#readme",
+  "dependencies": {
+    "nanoid": "^5.0.7",
+    "zod": "^3.23.8"
+  },
+  "peerDependencies": {
+    "openai": "^4.50.0"
+  },
+  "peerDependenciesMeta": {
+    "openai": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "eslint": "^8.57.0",
+    "tsup": "^8.1.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "intent",
+    "nlp",
+    "slot-filling",
+    "tool-routing"
+  ],
+  "license": "MIT",
+  "author": "intent-agent-kit contributors"
+}
